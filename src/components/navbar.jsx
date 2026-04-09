@@ -9,7 +9,7 @@ export default function Navbar() {
     const { isDarkMode, toggleTheme } = useTheme();
 
     return (
-        <div className='h-16 fixed left-0 top-0 w-full bg-background'>
+        <div className='h-16 fixed left-0 top-0 w-full bg-background z-100'>
             <nav className='w-full max-w-3xl mx-auto px-6 flex items-center h-full'>
                 <Link className="text-sm font-medium tracking-tight" href="/">
                     <span className="text-muted-foreground">~/</span>
