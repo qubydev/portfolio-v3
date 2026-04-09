@@ -6,6 +6,7 @@ import Projects from '@/components/sections/projects'
 import Contact from '@/components/sections/contact'
 import Quote from '@/components/sections/quote'
 import Activity from '@/components/sections/activity'
+import Footer from '@/components/footer'
 
 export default function Page() {
   return (
@@ -20,6 +21,8 @@ export default function Page() {
         <Contact />
         <Quote />
       </main>
+
+      <Footer />
     </div>
   )
 }
