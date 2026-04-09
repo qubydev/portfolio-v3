@@ -3,7 +3,21 @@
 import React from 'react'
 import Link from 'next/link'
 import { useTheme } from '../context/ThemeContext'
-import ThemeToggle from './theme-toggle';
+import ThemeToggle from './theme-toggle'
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { Button } from './ui/button';
+import { HiMenu } from "react-icons/hi";
+
+const links = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/showcase", label: "Showcase" },
+]
 
 export default function Navbar() {
     const { isDarkMode, toggleTheme } = useTheme();
@@ -17,16 +31,32 @@ export default function Navbar() {
                 </Link>
 
                 <div className="flex items-center gap-2 ml-auto">
-                    <div className="flex items-center gap-3 md:gap-6 pr-1 md:pr-3">
-                        <NavLink href="/">Home</NavLink>
-                        <NavLink href="/about">About</NavLink>
-                        <NavLink href="/showcase">Showcase</NavLink>
+                    <div className="hidden md:flex items-center gap-6 pr-3">
+                        {links.map(({ href, label }) => (
+                            <NavLink key={href} href={href}>{label}</NavLink>
+                        ))}
                     </div>
 
-                    <ThemeToggle
-                        toggled={!isDarkMode}
-                        onToggle={toggleTheme}
-                    />
+                    <ThemeToggle toggled={!isDarkMode} onToggle={toggleTheme} />
+
+                    <div className="md:hidden">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="secondary" size="icon">
+                                    <HiMenu className="size-6" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-36 z-101">
+                                {links.map(({ href, label }) => (
+                                    <DropdownMenuItem key={href} asChild>
+                                        <Link href={href} className="w-full cursor-pointer">
+                                            {label}
+                                        </Link>
+                                    </DropdownMenuItem>
+                                ))}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -35,7 +65,7 @@ export default function Navbar() {
 
 const NavLink = ({ href, children }) => {
     return (
-        <Link className="relative text-xs md:text-sm transition-colors after:content-[''] after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-px after:bg-current after:transition-all md:hover:after:w-full text-muted-foreground hover:text-primary" href={href}>
+        <Link className="relative text-sm transition-colors after:content-[''] after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-px after:bg-current after:transition-all hover:after:w-full text-muted-foreground hover:text-primary" href={href}>
             {children}
         </Link>
     )
