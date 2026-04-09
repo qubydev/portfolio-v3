@@ -1,5 +1,10 @@
 import React from 'react'
 import GithubCalendar from '../github-calendar'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 const techStack = [
     { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
@@ -24,7 +29,7 @@ const techStack = [
     { name: "React Router", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg" },
     { name: "React Navigation", src: "https://reactnavigation.org/img/spiro.svg", invertDark: true },
     { name: "Shadcn UI", src: "https://cdn.simpleicons.org/shadcnui", invertDark: true },
-    { name: "Socket.IO", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg", invertDark: true }
+    { name: "Socket.IO", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg", invertDark: true },
 ]
 
 export default function Activity() {
@@ -38,18 +43,18 @@ export default function Activity() {
                 <h2 className="mb-4 text-xs uppercase tracking-widest text-muted-foreground">Tech Stack</h2>
                 <div className="flex flex-wrap items-center gap-3 opacity-95 sm:gap-4">
                     {techStack.map((tech) => (
-                        <div key={tech.name} className="group relative inline-flex justify-center">
-                            <img
-                                src={tech.src}
-                                alt={tech.name}
-                                className={`h-6 w-6 cursor-pointer object-contain transition-transform duration-200 hover:scale-110 sm:h-8 sm:w-8 ${tech.invertDark ? 'dark:invert' : ''
-                                    }`}
-                            />
-                            <div className="pointer-events-none absolute bottom-full z-50 mb-3 translate-y-1 whitespace-nowrap rounded-lg bg-zinc-800 px-3 py-1.5 text-xs font-medium text-white opacity-0 shadow-md transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                        <Tooltip key={tech.name}>
+                            <TooltipTrigger asChild>
+                                <img
+                                    src={tech.src}
+                                    alt={tech.name}
+                                    className={`h-6 w-6 cursor-pointer object-contain transition-transform duration-200 hover:scale-110 sm:h-8 sm:w-8 ${tech.invertDark ? 'dark:invert' : ''}`}
+                                />
+                            </TooltipTrigger>
+                            <TooltipContent side="top" sideOffset={6}>
                                 {tech.name}
-                                <div className="absolute left-1/2 top-full -mt-px -translate-x-1/2 border-4 border-transparent border-t-zinc-800" />
-                            </div>
-                        </div>
+                            </TooltipContent>
+                        </Tooltip>
                     ))}
                 </div>
             </div>

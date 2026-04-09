@@ -6,12 +6,12 @@ const css = `
 .tt-expand g circle,
 .tt-expand g path {
   transform-origin: center;
-  transition: transform calc(var(--tt-duration) * .65) cubic-bezier(0,0,0,1.25) calc(var(--tt-duration) * .35);
+  transition: transform calc(var(--tt-duration) * .65) cubic-bezier(0.4, 0, 0.2, 1) calc(var(--tt-duration) * .35);
 }
 .tt-expand :first-child path {
   transition-property: transform, d;
   transition-duration: calc(var(--tt-duration) * .6);
-  transition-timing-function: cubic-bezier(0,0,0.5,1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .tt-toggled .tt-expand g circle {
   transform: scale(1.4);
@@ -24,7 +24,7 @@ const css = `
 .tt-toggled .tt-expand :first-child path {
   d: path("M-14-3h25a10.7 10.7 0 1 0 17 13v30H-5z");
   transition-delay: calc(var(--tt-duration) * 0.4);
-  transition-timing-function: cubic-bezier(0,0,0,1.25);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 @supports not (d:path("")) {
   .tt-toggled .tt-expand :first-child path {

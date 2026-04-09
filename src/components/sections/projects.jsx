@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 export default function Projects() {
     const projects = [
@@ -34,7 +39,7 @@ export default function Projects() {
     ]
 
     return (
-        <section className="mt-20 overflow-x-clip">
+        <section className="mt-20">
             <h2 className="mb-4 text-xs uppercase tracking-widest text-muted-foreground">Featured Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {projects.map((project, idx) => (
@@ -68,13 +73,14 @@ export default function Projects() {
                             <p className="text-foreground/70 text-sm leading-relaxed mb-6">{project.description}</p>
                             <div className="flex flex-wrap gap-3 mt-auto items-center">
                                 {project.tech.map((t, tIdx) => (
-                                    <div key={tIdx} className="relative inline-flex group/tech">
-                                        <img src={t.icon} alt={t.name} className={`w-6 h-6 object-contain hover:scale-110 transition-transform duration-150 ease-out cursor-pointer ${t.invertDark ? 'dark:invert' : ''}`} />
-                                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-foreground text-background text-xs font-medium rounded-lg whitespace-nowrap pointer-events-none transition-all duration-150 ease-out z-50 opacity-0 translate-y-1 group-hover/tech:opacity-100 group-hover/tech:translate-y-0 shadow-md">
+                                    <Tooltip key={tIdx}>
+                                        <TooltipTrigger asChild>
+                                            <img src={t.icon} alt={t.name} className={`w-6 h-6 object-contain hover:scale-110 transition-transform duration-150 ease-out cursor-pointer ${t.invertDark ? 'dark:invert' : ''}`} />
+                                        </TooltipTrigger>
+                                        <TooltipContent side="top" sideOffset={6}>
                                             {t.name}
-                                            <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-foreground"></div>
-                                        </div>
-                                    </div>
+                                        </TooltipContent>
+                                    </Tooltip>
                                 ))}
                             </div>
                         </div>
