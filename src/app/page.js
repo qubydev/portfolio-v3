@@ -4,6 +4,7 @@ import Hero from '@/components/sections/hero'
 import Experience from '@/components/sections/experience'
 import Projects from '@/components/sections/projects'
 import Contact from '@/components/sections/contact'
+import Quote from '@/components/sections/quote'
 import Activity from '@/components/sections/activity'
 
 export default function Page() {
@@ -17,6 +18,7 @@ export default function Page() {
         <Experience />
         <Projects />
         <Contact />
+        <Quote />
       </main>
     </div>
   )

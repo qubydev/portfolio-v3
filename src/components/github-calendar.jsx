@@ -1,41 +1,7 @@
-import React from 'react'
+'use client'
+
+import React, { useState, useEffect, useRef } from 'react'
 import ContributionGrid from './contribution-grid'
-
-async function getGithubContributions(username) {
-    const headers = {
-        'Authorization': `bearer ${process.env.GITHUB_TOKEN}`,
-        'Content-Type': 'application/json'
-    }
-
-    const body = JSON.stringify({
-        query: `query {
-            user(login: "${username}") {
-                contributionsCollection {
-                    contributionCalendar {
-                        totalContributions
-                        weeks {
-                            contributionDays {
-                                contributionCount
-                                contributionLevel
-                                date
-                            }
-                        }
-                    }
-                }
-            }
-        }`
-    })
-
-    const response = await fetch('https://api.github.com/graphql', {
-        method: 'POST',
-        headers,
-        body,
-        next: { revalidate: 3600 }
-    })
-
-    const data = await response.json()
-    return data.data.user.contributionsCollection.contributionCalendar
-}
 
 const levelColors = {
     NONE: "bg-muted/50",
@@ -45,16 +11,44 @@ const levelColors = {
     FOURTH_QUARTILE: "bg-green-500",
 }
 
-export default async function GithubCalendar({ username }) {
-    const calendarData = await getGithubContributions(username)
-    const weeks = calendarData?.weeks || []
-    const total = calendarData?.totalContributions || 0
+export default function GithubCalendar({ username }) {
+    const [calendarData, setCalendarData] = useState(null)
+    const hasFetched = useRef(false)
+
+    useEffect(() => {
+        if (hasFetched.current) return;
+        hasFetched.current = true;
+
+        fetch(`/api/github-contributions?username=${username}`)
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to fetch contributions');
+                return res.json();
+            })
+            .then(data => {
+                if (data && data.weeks) {
+                    setCalendarData(data);
+                }
+            })
+            .catch(err => console.error('GitHub calendar error:', err));
+    }, [username]);
+
+    if (!calendarData) {
+        return (
+            <div className="flex w-full flex-col gap-3 font-sans animate-pulse">
+                <div className="h-4 w-full" />
+                <div className="h-[72px] w-full rounded bg-muted/30" />
+                <div className="h-4 w-full" />
+            </div>
+        )
+    }
+
+    const weeks = calendarData.weeks || []
+    const total = calendarData.totalContributions || 0
 
     const months = []
     weeks.forEach((week, i) => {
         const firstDay = week.contributionDays[0].date
         const month = new Date(firstDay).toLocaleString('default', { month: 'short' })
-
         if (!months.some(m => m.label === month)) {
             months.push({ label: month, index: i })
         }
