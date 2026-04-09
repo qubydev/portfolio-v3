@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '@/components/navbar'
 import Hero from '@/components/sections/hero'
 import Experience from '@/components/sections/experience'
+import Projects from '@/components/sections/projects'
 import Activity from '@/components/sections/activity'
 
 export default function Page() {
@@ -13,6 +14,7 @@ export default function Page() {
         <Hero />
         <Activity />
         <Experience />
+        <Projects />
       </main>
     </div>
   )
