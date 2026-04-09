@@ -45,7 +45,7 @@ export default function ThemeToggle({ toggled, onToggle }) {
         aria-label="Toggle theme"
         onClick={onToggle}
         style={{ "--tt-duration": "500ms" }}
-        className={`inline-flex size-8 items-center justify-center rounded-md bg-secondary text-muted-foreground hover:text-secondary-foreground transition-colors hover:bg-secondary/80 cursor-pointer border-none ${toggled ? " tt-toggled" : ""}`}
+        className={`inline-flex size-8 items-center justify-center rounded-md bg-secondary text-secondary-foreground transition-colors hover:bg-secondary/80 cursor-pointer border-none ${toggled ? " tt-toggled" : ""}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

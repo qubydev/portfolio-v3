@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '@/components/navbar'
 import Hero from '@/components/sections/hero'
+import Activity from '@/components/sections/activity'
 
 export default function Page() {
   return (
@@ -9,7 +10,7 @@ export default function Page() {
 
       <main className='px-6 pb-12 pt-36 w-full max-w-3xl mx-auto'>
         <Hero />
-
+        <Activity />
       </main>
     </div>
   )
