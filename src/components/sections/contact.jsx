@@ -1,8 +1,11 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Calendar, Mail, ArrowUpRight, Loader2, CheckCircle2, XCircle } from 'lucide-react';
+import { Calendar, Mail, ArrowUpRight, Loader2, CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
 import { FiLinkedin } from "react-icons/fi";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 export default function Contact() {
     const [status, setStatus] = useState('idle');
@@ -103,11 +106,11 @@ export default function Contact() {
                     <form className="space-y-3 flex-1 flex flex-col" onSubmit={handleSubmit}>
                         <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
                         
-                        <input type="text" placeholder="Full Name" disabled={status === 'loading' || status === 'success'} className="w-full bg-background/50 border border-border/50 rounded-lg px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none hover:border-border/80 focus:border-border transition-all ease-in-out disabled:opacity-50" required name="name" />
+                        <Input type="text" placeholder="Full Name" disabled={status === 'loading' || status === 'success'} required name="name" />
 
-                        <input type="email" placeholder="Email Address" disabled={status === 'loading' || status === 'success'} className="w-full bg-background/50 border border-border/50 rounded-lg px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none hover:border-border/80 focus:border-border transition-all ease-in-out disabled:opacity-50" required name="email" />
-                        <textarea rows="4" name="message" placeholder="Your Message" disabled={status === 'loading' || status === 'success'} className="w-full bg-background/50 border border-border/50 rounded-lg px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none hover:border-border/80 focus:border-border transition-all ease-in-out resize-none flex-1 disabled:opacity-50" required></textarea>
-                        <button type="submit" disabled={status === 'loading' || status === 'success'} className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-background border border-border/50 hover:bg-accent/80 hover:border-border/80 text-foreground text-sm font-medium rounded-lg transition-all ease-out duration-200 group disabled:opacity-50 disabled:cursor-not-allowed">
+                        <Input type="email" placeholder="Email Address" disabled={status === 'loading' || status === 'success'} required name="email" />
+                        <Textarea rows="4" name="message" placeholder="Your Message" disabled={status === 'loading' || status === 'success'} className="resize-none flex-1" required></Textarea>
+                        <Button type="submit" disabled={status === 'loading' || status === 'success'} className="w-full gap-2 group py-5">
                             {status === 'loading' ? (
                                 <>
                                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -126,10 +129,10 @@ export default function Contact() {
                             ) : (
                                 <>
                                     <span>Send Message</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" className="group-hover:translate-x-0.5 transition-transform ease-out" viewBox="0 0 24 24" fill="currentColor"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+                                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform ease-out" />
                                 </>
                             )}
-                        </button>
+                        </Button>
                     </form>
                 </div>
             </div>
