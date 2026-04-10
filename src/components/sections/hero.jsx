@@ -14,7 +14,7 @@ export default function Hero() {
                 <img
                     alt="Malay Patra"
                     className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl object-cover border border-border shrink-0"
-                    src="https://siddz.com/images/profile/siddharth.webp"
+                    src="/quby.jpg"
                 />
                 <div className="flex flex-col md:gap-1 gap-0.5 flex-1">
                     <div className="flex items-start sm:items-center gap-2 sm:gap-3 flex-col sm:flex-row">
