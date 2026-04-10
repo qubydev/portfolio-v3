@@ -7,21 +7,27 @@ import {
 import Link from 'next/link'
 import { FaXTwitter, FaGithub } from 'react-icons/fa6'
 import { MdOutlineEmail } from 'react-icons/md'
+import { FaLinkedin } from "react-icons/fa";
 
 const socialLinks = [
     {
+        label: "LinkedIn",
+        href: "https://linkedin.com/in/qubydev",
+        icon: <FaLinkedin className="w-4 h-4" />
+    },
+    {
         label: "X (Twitter)",
-        href: "https://x.com/buildwithsid",
+        href: "https://x.com/qubydev",
         icon: <FaXTwitter className="w-4 h-4" />
     },
     {
         label: "Email",
-        href: "mailto:siddharth@onavix.com",
+        href: "mailto:malay88patra@gmail.com",
         icon: <MdOutlineEmail className="w-4 h-4" />
     },
     {
         label: "GitHub",
-        href: "https://github.com/SiddDevZ",
+        href: "https://github.com/qubydev",
         icon: <FaGithub className="w-4 h-4" />
     }
 ]
@@ -38,7 +44,7 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
                         <p className="text-xs text-muted-foreground/60">
-                            © {new Date().getFullYear()} Siddharth<span className="md:hidden"> Meena</span>.
+                            © {new Date().getFullYear()} Qubydev.
                         </p>
                         <div className="hidden md:block w-px h-4 bg-border/50"></div>
                         <div className="flex items-center gap-4">
@@ -56,21 +62,15 @@ export default function Footer() {
 
                     <div className="flex gap-4">
                         {socialLinks.map((social) => (
-                            <Tooltip key={social.label}>
-                                <TooltipTrigger asChild>
-                                    <a
-                                        href={social.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-muted-foreground/70 hover:text-foreground transition-colors duration-200"
-                                    >
-                                        {social.icon}
-                                    </a>
-                                </TooltipTrigger>
-                                <TooltipContent side="top" sideOffset={6}>
-                                    {social.label}
-                                </TooltipContent>
-                            </Tooltip>
+                            <a
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-muted-foreground/70 hover:text-foreground transition-colors duration-200"
+                                key={social.label}
+                            >
+                                {social.icon}
+                            </a>
                         ))}
                     </div>
                 </div>
