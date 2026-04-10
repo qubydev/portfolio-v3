@@ -72,7 +72,7 @@ export default function Projects() {
                 {projects.map((project, idx) => (
                     <div key={idx} className="flex flex-col group font-geist rounded-xl bg-card/70 border border-border/50 hover:border-border hover:bg-accent/50 ease-out transition-all duration-200">
                         <div className="relative w-full h-40 sm:h-50 overflow-hidden rounded-t-xl bg-muted/50 shrink-0">
-                            <img src={project.image} alt={`${project.title} - Project by Siddharth Meena`} className="w-full h-full object-cover" />
+                            <img src={project.image} alt={`${project.title} - Project thumbnail`} className="w-full h-full object-cover" />
                         </div>
                         <div className="flex flex-col flex-1 px-4 sm:px-6 py-4 sm:py-5">
                             <div className="flex justify-between items-start mb-3 sm:mb-3.5">
