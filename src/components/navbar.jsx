@@ -1,8 +1,5 @@
-"use client";
-
 import React from 'react'
 import Link from 'next/link'
-import { useTheme } from '../context/ThemeContext'
 import ThemeToggle from './theme-toggle'
 import {
     DropdownMenu,
@@ -12,6 +9,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Button } from './ui/button';
 import { HiMenu } from "react-icons/hi";
+import { HyperText } from "@/components/ui/hyper-text"
 
 const links = [
     { href: "/", label: "Home" },
@@ -20,14 +18,13 @@ const links = [
 ]
 
 export default function Navbar() {
-    const { isDarkMode, toggleTheme } = useTheme();
 
     return (
         <div className='h-16 fixed left-0 top-0 w-full bg-background z-100'>
             <nav className='w-full max-w-3xl mx-auto px-6 flex items-center h-full'>
-                <Link className="text-sm font-medium tracking-tight" href="/">
+                <Link className="text-sm font-medium tracking-tight flex items-center" href="/">
                     <span className="text-muted-foreground">~/</span>
-                    <span>qubydev</span>
+                    <HyperText className={"text-sm"}>qubydev</HyperText>
                 </Link>
 
                 <div className="flex items-center gap-2 ml-auto">
@@ -37,7 +34,7 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    <ThemeToggle toggled={!isDarkMode} onToggle={toggleTheme} />
+                    <ThemeToggle />
 
                     <div className="md:hidden">
                         <DropdownMenu>
