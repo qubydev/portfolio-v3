@@ -151,14 +151,14 @@ export default function Hero() {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-2">
                 <div className="flex flex-wrap items-center gap-2">
-                    <Button variant="outline" size="sm" asChild className="h-9 gap-2 bg-muted/50">
+                    <Button size="sm" asChild className="h-9 gap-2">
                         <a href="https://drive.google.com/file/d/1ndeSxjR6InKTRdrs69jDwf1PTqHN_JSt/view" target="_blank" rel="noopener noreferrer">
                             <FileText className="h-4 w-4" strokeWidth={1.5} />
                             <span className="text-[13px] font-light">Resume</span>
                         </a>
                     </Button>
 
-                    <Button variant="outline" size="sm" asChild className="h-9 gap-2 bg-muted/50">
+                    <Button variant="outline" size="sm" asChild className="h-9 gap-2">
                         <a href="#contact">
                             <Mail className="h-4 w-4" strokeWidth={1.5} />
                             <span className="text-[13px] font-light">Contact</span>
@@ -169,25 +169,25 @@ export default function Hero() {
                 <div className="flex flex-wrap items-center gap-2">
                     <div className="mx-1 hidden h-5 w-px bg-border sm:block" />
 
-                    <Button variant="outline" size="icon" asChild className="h-9 w-9 bg-muted/50">
+                    <Button variant="outline" size="icon" asChild className="h-9 w-9">
                         <a href="https://www.linkedin.com/in/qubydev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <FaLinkedin className="h-4 w-4" />
                         </a>
                     </Button>
 
-                    <Button variant="outline" size="icon" asChild className="h-9 w-9 bg-muted/50">
+                    <Button variant="outline" size="icon" asChild className="h-9 w-9">
                         <a href="https://x.com/qubydev" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                             <SiX className="h-4 w-4" />
                         </a>
                     </Button>
 
-                    <Button variant="outline" size="icon" asChild className="h-9 w-9 bg-muted/50">
+                    <Button variant="outline" size="icon" asChild className="h-9 w-9">
                         <a href="https://github.com/qubydev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <SiGithub className="h-4 w-4" />
                         </a>
                     </Button>
 
-                    <Button variant="outline" size="icon" asChild className="h-9 w-9 bg-muted/50">
+                    <Button variant="outline" size="icon" asChild className="h-9 w-9">
                         <a href="mailto:malay88patra@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
                             <Mail className="h-4 w-4" strokeWidth={1.5} />
                         </a>

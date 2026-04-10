@@ -3,27 +3,29 @@ import React from 'react'
 export default function Experience() {
     const experiences = [
         {
-            title: "Founder & Developer",
-            company: "Onavix Studio",
-            location: "Remote, Part-time",
-            date: "Feb 2024 - Present",
-            logo: "https://siddz.com/images/company-logos/onavix.jpg",
-            description: "Founded and led a freelance web development studio, delivering custom-built websites and applications with a focus on responsive design and performance.",
+            title: "SDE Intern",
+            company: "Souloxy",
+            location: "Remote",
+            date: "May 2025 - Jan 2026",
+            logo: "/souloxy.png",
+            description: "Worked closely with the core development team of souloxy as a Full-Stack developer. Gained experience working in a live production environment.",
             bullets: [
-                "Delivered 30+ high-performance web solutions using Next.js, React, and Node.js",
-                "Improved client conversion rates and engagement through optimized user experiences"
+                "Migrated codebase to latest libraries such as Vite and Tailwind CSS",
+                "Learned to work with live production database (PostgreSQL)",
+                "Implemented backend security features and optimized API performance"
             ]
         },
         {
-            title: "Founding Engineer",
-            company: "Stealth Startup",
-            location: "Denmark, Full-Time",
-            date: "Mar 2025 - Nov 2025",
-            logo: "https://siddz.com/images/company-logos/stealth.jpg",
-            description: "Built a video streaming platform with real-time chat functionality, handling 1,000+ daily active users with optimized infrastructure and seamless real-time communication.",
+            title: "Freelancer",
+            company: "Upwork",
+            location: "Remote",
+            date: "Apr 2023 - Sept 2025",
+            logo: "/upwork.svg",
+            description: "Delivered fully automated & AI integrated softwares to clients across the globe, making their life easier.",
             bullets: [
-                "Architected scalable video streaming platform serving 1,000+ daily users with optimized CDN delivery",
-                "Implemented real-time chat application with Socket.IO, enabling instant messaging across the platform"
+                "Expert in data scraping using selenium/puppeteer + proxy + captcha solving",
+                "Developed automated solution to problems faced by my clients",
+                "Integrated AI to enhance the functionality of the softwares"
             ]
         }
     ]
