@@ -97,7 +97,7 @@ export default function Hero() {
                     I build interactive web apps using{" "}
                     <TechBadge
                         href="https://www.typescriptlang.org/"
-                        icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                        icon="/icons/typescript.svg"
                         className="bg-blue-500/10 text-blue-400"
                     >
                         TypeScript
@@ -105,7 +105,7 @@ export default function Hero() {
                     ,{" "}
                     <TechBadge
                         href="https://react.dev/"
-                        icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                        icon="/icons/react.svg"
                         className="bg-cyan-500/10 text-cyan-400"
                     >
                         React
@@ -113,7 +113,7 @@ export default function Hero() {
                     ,{" "}
                     <TechBadge
                         href="https://nextjs.org/"
-                        icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                        icon="/icons/nextjs.svg"
                         className="bg-primary/10 text-foreground"
                         darkInvert
                     >
@@ -122,7 +122,7 @@ export default function Hero() {
                     , and{" "}
                     <TechBadge
                         href="https://tailwindcss.com/"
-                        icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                        icon="/icons/tailwindcss.svg"
                         className="bg-sky-500/10 text-sky-400"
                     >
                         Tailwind CSS
@@ -130,7 +130,7 @@ export default function Hero() {
                     . I also integrate agentic AI into my applications using
                     <TechBadge
                         href="https://langchain.com/"
-                        icon="/langchain.svg"
+                        icon="/icons/langchain.svg"
                         className="bg-primary/10 text-foreground"
                         darkInvert
                     >
@@ -139,7 +139,7 @@ export default function Hero() {
                     {" "} and {" "}
                     <TechBadge
                         href="https://langchain.com/langgraph"
-                        icon="/langgraph.svg"
+                        icon="/icons/langgraph.svg"
                         className="bg-[#4ba9f0]/10 text-[#4ba9f0]"
                     >
                         LangGraph
