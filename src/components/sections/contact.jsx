@@ -5,7 +5,7 @@ import { Calendar, Mail, ArrowUpRight, Loader2, CheckCircle2, XCircle } from 'lu
 import { FiLinkedin } from "react-icons/fi";
 
 export default function Contact() {
-    const [status, setStatus] = useState('idle'); // idle, loading, success, error
+    const [status, setStatus] = useState('idle');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,6 +17,7 @@ export default function Contact() {
             name: formData.get('name'),
             email: formData.get('email'),
             message: formData.get('message'),
+            honeypot: formData.get('honeypot'),
         };
 
         try {
@@ -30,19 +31,17 @@ export default function Contact() {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error?.message || 'Something went wrong');
+                throw new Error(errorData.error || errorData.error?.message || 'Something went wrong');
             }
 
             setStatus('success');
             form.reset();
             
-            // Return to idle after a few seconds
             setTimeout(() => setStatus('idle'), 5000);
         } catch (error) {
             console.error('Error sending message:', error);
             setStatus('error');
             
-            // Return to idle after a few seconds
             setTimeout(() => setStatus('idle'), 5000);
         }
     };
@@ -102,7 +101,10 @@ export default function Contact() {
                         <p className="text-sm text-muted-foreground leading-[1.6]">Prefer to write? Fill out the form and I'll get back to you within 24 hours.</p>
                     </div>
                     <form className="space-y-3 flex-1 flex flex-col" onSubmit={handleSubmit}>
+                        <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
+                        
                         <input type="text" placeholder="Full Name" disabled={status === 'loading' || status === 'success'} className="w-full bg-background/50 border border-border/50 rounded-lg px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none hover:border-border/80 focus:border-border transition-all ease-in-out disabled:opacity-50" required name="name" />
+
                         <input type="email" placeholder="Email Address" disabled={status === 'loading' || status === 'success'} className="w-full bg-background/50 border border-border/50 rounded-lg px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none hover:border-border/80 focus:border-border transition-all ease-in-out disabled:opacity-50" required name="email" />
                         <textarea rows="4" name="message" placeholder="Your Message" disabled={status === 'loading' || status === 'success'} className="w-full bg-background/50 border border-border/50 rounded-lg px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none hover:border-border/80 focus:border-border transition-all ease-in-out resize-none flex-1 disabled:opacity-50" required></textarea>
                         <button type="submit" disabled={status === 'loading' || status === 'success'} className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-background border border-border/50 hover:bg-accent/80 hover:border-border/80 text-foreground text-sm font-medium rounded-lg transition-all ease-out duration-200 group disabled:opacity-50 disabled:cursor-not-allowed">
