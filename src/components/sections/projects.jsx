@@ -8,34 +8,59 @@ import {
 export default function Projects() {
     const projects = [
         {
-            title: "Onavix Studio",
-            link: "https://onavix.com",
-            image: "https://siddz.com/images/projects/preview_1.webp",
-            description: "A web development agency specializing in creating visually appealing, conversion-focused websites for clients.",
+            title: "Adotion",
+            link: "https://www.adotion.pro",
+            image: "/projects/adotion.png",
+            description: "Save any meta ad in one click directly into your notion database with permanent video link.",
             tech: [
-                { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", invertDark: true },
-                { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-                { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-                { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-                { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" }
+                { name: "Plasmo", icon: "/icons/plasmo.svg", invertDark: true },
+                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
+                { name: "React", icon: "/icons/react.svg" },
+                { name: "Supabase", icon: "/icons/supabase.svg" },
             ]
         },
         {
-            title: "UnchainedGPT",
-            link: "https://unchainedgpt.com",
-            github: "https://github.com",
-            image: "https://siddz.com/images/projects/preview_2.webp",
-            description: "An AI platform with 500+ users bringing together 80+ open-source AI models through a single, unified interface.",
+            title: "Infia",
+            link: "https://infia.vercel.app",
+            github: "https://github.com/qubydev/infia",
+            image: "/projects/infia.png",
+            description: "Infia does it for you! Click and connect with a large number of available applications.",
             tech: [
-                { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", invertDark: true },
-                { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-                { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-                { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-                { name: "Hono.js", icon: "https://cdn.simpleicons.org/hono" },
-                { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-                { name: "Socket.IO", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg", invertDark: true }
+                { name: "LangGraph", icon: "/icons/langgraph.svg" },
+                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
+                { name: "React", icon: "/icons/react.svg" },
+                { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
+                { name: "MongoDB", icon: "/icons/mongodb.svg" },
             ]
-        }
+        },
+        {
+            title: "Logo Cat",
+            link: "https://logocat.vercel.app",
+            github: "https://github.com/qubydev/logocat",
+            image: "/projects/logocat.png",
+            description: "Fetch logo of any given site link using smart extraction technique.",
+            tech: [
+                { name: "LangChain", icon: "/icons/langchain.svg", invertDark: true },
+                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
+                { name: "React", icon: "/icons/react.svg" },
+                { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
+                { name: "Figma", icon: "/icons/figma.svg" },
+            ]
+        },
+        {
+            title: "Fullstack Sheet",
+            link: "https://www.fullstacksheet.tech",
+            github: "https://github.com/qubydev/full-stack-sheet",
+            image: "/projects/fullstacksheet.png",
+            description: "A high quality free roadmap for learning full-stack development.",
+            tech: [
+                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
+                { name: "React", icon: "/icons/react.svg" },
+                { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
+                { name: "better-auth", icon: "/icons/better-auth.svg", invertDark: true },
+                { name: "shadcn/ui", icon: "/icons/shadcnui.svg", invertDark: true },
+            ]
+        },
     ]
 
     return (
