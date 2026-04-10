@@ -114,6 +114,7 @@ export default function Hero() {
                         href="https://nextjs.org/"
                         icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
                         className="bg-primary/10 text-foreground"
+                        darkInvert
                     >
                         Next.js
                     </TechBadge>
@@ -125,7 +126,24 @@ export default function Hero() {
                     >
                         Tailwind CSS
                     </TechBadge>
-                    . With a focus on UI design. Enthusiastic about creating seamless user experiences, driven by a keen eye for design.
+                    . I also integrate agentic AI into my applications using
+                    <TechBadge
+                        href="https://langchain.com/"
+                        icon="/langchain.svg"
+                        className="bg-primary/10 text-foreground"
+                        darkInvert
+                    >
+                        LangChain
+                    </TechBadge>
+                    {" "} and {" "}
+                    <TechBadge
+                        href="https://langchain.com/langgraph"
+                        icon="/langgraph.svg"
+                        className="bg-[#4ba9f0]/10 text-[#4ba9f0]"
+                    >
+                        LangGraph
+                    </TechBadge>
+                    .
                 </p>
             </div>
 
