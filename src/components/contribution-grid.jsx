@@ -7,7 +7,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-const levelColors = {
+const defaultLevelColors = {
     NONE: "bg-muted/50",
     FIRST_QUARTILE: "bg-green-500/30",
     SECOND_QUARTILE: "bg-green-500/50",
@@ -15,7 +15,10 @@ const levelColors = {
     FOURTH_QUARTILE: "bg-green-500",
 }
 
-export default function ContributionGrid({ weeks = [] }) {
+export default function ContributionGrid({
+    weeks = [],
+    levelColors = defaultLevelColors
+}) {
     if (!weeks || weeks.length === 0) return null;
 
     return (

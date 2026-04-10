@@ -4,11 +4,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import ContributionGrid from './contribution-grid'
 
 const levelColors = {
-    NONE: "bg-muted/50",
-    FIRST_QUARTILE: "bg-green-500/30",
-    SECOND_QUARTILE: "bg-green-500/50",
-    THIRD_QUARTILE: "bg-green-500/70",
-    FOURTH_QUARTILE: "bg-green-500",
+    NONE: "bg-primary/5",
+    FIRST_QUARTILE: "bg-primary/30",
+    SECOND_QUARTILE: "bg-primary/50",
+    THIRD_QUARTILE: "bg-primary/70",
+    FOURTH_QUARTILE: "bg-primary",
 }
 
 export default function GithubCalendar({ username }) {
@@ -68,7 +68,7 @@ export default function GithubCalendar({ username }) {
                 ))}
             </div>
 
-            <ContributionGrid weeks={weeks} />
+            <ContributionGrid weeks={weeks} levelColors={levelColors} />
 
             <div className="mt-1 flex items-center justify-between font-mono text-[11px] text-muted-foreground">
                 <span>
