@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Contact() {
     return (
-        <section className="mt-20">
+        <section className="mt-20" id="contact">
             <h2 className="mb-4 text-xs uppercase tracking-widest text-muted-foreground">Let's Work Together</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="font-geist px-6 sm:px-6 py-5 sm:py-5 rounded-xl bg-card/70 border border-border/50 hover:border-border hover:bg-accent/50 transition-all duration-200 flex flex-col">

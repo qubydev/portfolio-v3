@@ -2,6 +2,7 @@ import React from 'react'
 import { Code2, MapPin, Mail, Clock, Globe, User2 } from 'lucide-react'
 import { FileText } from 'lucide-react'
 import { SiGithub, SiX } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 import RelativeTime from '../relative-time'
 import TechBadge from '../tech-badge'
 import { Button } from '../ui/button';
@@ -151,7 +152,7 @@ export default function Hero() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-2">
                 <div className="flex flex-wrap items-center gap-2">
                     <Button variant="outline" size="sm" asChild className="h-9 gap-2 bg-muted/50">
-                        <a href="/Siddharth_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                        <a href="https://drive.google.com/file/d/1ndeSxjR6InKTRdrs69jDwf1PTqHN_JSt/view" target="_blank" rel="noopener noreferrer">
                             <FileText className="h-4 w-4" strokeWidth={1.5} />
                             <span className="text-[13px] font-light">Resume</span>
                         </a>
@@ -169,13 +170,19 @@ export default function Hero() {
                     <div className="mx-1 hidden h-5 w-px bg-border sm:block" />
 
                     <Button variant="outline" size="icon" asChild className="h-9 w-9 bg-muted/50">
-                        <a href="https://x.com/buildwithsid" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <a href="https://www.linkedin.com/in/qubydev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <FaLinkedin className="h-4 w-4" />
+                        </a>
+                    </Button>
+
+                    <Button variant="outline" size="icon" asChild className="h-9 w-9 bg-muted/50">
+                        <a href="https://x.com/qubydev" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                             <SiX className="h-4 w-4" />
                         </a>
                     </Button>
 
                     <Button variant="outline" size="icon" asChild className="h-9 w-9 bg-muted/50">
-                        <a href="https://github.com/SiddDevZ" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <a href="https://github.com/qubydev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <SiGithub className="h-4 w-4" />
                         </a>
                     </Button>
