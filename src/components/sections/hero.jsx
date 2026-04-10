@@ -127,7 +127,7 @@ export default function Hero() {
                     >
                         Tailwind CSS
                     </TechBadge>
-                    . I also integrate agentic AI into my applications using
+                    . I also integrate agentic AI into my applications using{" "}
                     <TechBadge
                         href="https://langchain.com/"
                         icon="/icons/langchain.svg"
