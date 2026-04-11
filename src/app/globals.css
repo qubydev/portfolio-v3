@@ -134,3 +134,9 @@
     @apply cursor-pointer;
   }
 }
+
+@layer components {
+  .link {
+    @apply text-blue-400 underline;
+  }
+}
