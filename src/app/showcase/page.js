@@ -71,7 +71,9 @@ export default function Showcase() {
                             tabIndex={0}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                if (isSelected) {
+                                const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+                                if (isTouchDevice || isSelected) {
                                     router.push(`/showcase/${folder.category}`);
                                 } else {
                                     setSelectedFolder(folder.category);
