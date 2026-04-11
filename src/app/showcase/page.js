@@ -36,24 +36,11 @@ function FolderIcon({ className }) {
 }
 
 export default function Showcase() {
-    const [selectedFolder, setSelectedFolder] = useState(null);
     const router = useRouter();
-
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.key === 'Enter' && selectedFolder) {
-                router.push(`/showcase/${selectedFolder}`);
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [selectedFolder, router]);
 
     return (
         <main
             className='px-6 pb-12 pt-36 w-full max-w-3xl mx-auto h-[calc(100vh-5rem)]'
-            onClick={() => setSelectedFolder(null)}
         >
             <div className="mb-8">
                 <h1 className='text-3xl font-bold capitalize'>Showcase</h1>
@@ -63,35 +50,16 @@ export default function Showcase() {
             </div>
             <div className='flex flex-wrap content-start text-foreground gap-4'>
                 {SHOWCASE_DATA.map(folder => {
-                    const isSelected = selectedFolder === folder.category;
-
                     return (
                         <div
                             key={folder.category}
                             tabIndex={0}
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-
-                                if (isTouchDevice || isSelected) {
-                                    router.push(`/showcase/${folder.category}`);
-                                } else {
-                                    setSelectedFolder(folder.category);
-                                }
-                            }}
-                            onDoubleClick={(e) => {
-                                e.stopPropagation();
-                                router.push(`/showcase/${folder.category}`);
-                            }}
-                            className={`flex flex-col items-center gap-2 p-3 rounded-md cursor-pointer select-none transition-colors w-28 border outline-none ${isSelected
-                                ? 'bg-accent border-border'
-                                : 'border-transparent hover:bg-accent/50 focus:bg-accent/50'
-                                }`}
+                            onClick={(e) => router.push(`/showcase/${folder.category}`)}
+                            className="flex flex-col items-center gap-2 p-3 rounded-md cursor-pointer select-none transition-colors w-28 hover:bg-muted group"
                         >
                             <FolderIcon className='size-16 pointer-events-none' />
                             <span
-                                className={`text-xs text-center w-full truncate px-1 ${isSelected ? 'text-accent-foreground font-medium' : 'text-muted-foreground'
-                                    }`}
+                                className="text-xs text-center w-full truncate px-1 text-muted-foreground group-hover:text-primary font-semibold"
                             >
                                 {folder.category}
                             </span>
