@@ -12,8 +12,8 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Portfolio",
-  description: "Portfolio of Malay",
+  title: "Malay Patra",
+  description: "Portfolio of Malay (Quby)",
 };
 
 export default function RootLayout({ children }) {
