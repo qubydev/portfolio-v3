@@ -6,6 +6,8 @@ import { FaLinkedin } from "react-icons/fa";
 import RelativeTime from '../relative-time'
 import TechBadge from '../tech-badge'
 import { Button } from '../ui/button';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function Hero() {
     return (
@@ -136,7 +138,7 @@ export default function Hero() {
                     >
                         LangChain
                     </TechBadge>
-                    {" "} and {" "}
+                    {" and "}
                     <TechBadge
                         href="https://langchain.com/langgraph"
                         icon="/icons/langgraph.svg"
@@ -144,7 +146,10 @@ export default function Hero() {
                     >
                         LangGraph
                     </TechBadge>
-                    .
+                    {" . "}
+                    <Link href={"/about"} className="link flex items-center">
+                        Read more <ArrowUpRight className="h-4 w-4" />
+                    </Link>
                 </p>
             </div>
 
