@@ -4,6 +4,7 @@ import { Code2, MapPin, Mail, Clock, Globe, User2 } from 'lucide-react'
 import { SiGithub, SiX } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from '@/components/ui/button'
+import CardStack from '@/components/card-stack'
 
 const Hl = ({ children }) => <span className='text-foreground font-medium'>{children}</span>
 
@@ -37,6 +38,11 @@ export default function About() {
                 <p>Today, I am a <Hl>Full-Stack developer</Hl>, solving problems I face in my day-to-day life. I have worked with a couple of <Hl>startups</Hl> and founded my own SaaS, <a href="https://adotion.pro" target="_blank" rel="noopener noreferrer" className='link'>Adotion</a>. I have also shipped many <Hl>automation systems</Hl> to clients across the globe during my <Hl>freelancing</Hl> days.</p>
 
                 <p>I <Hl>do not</Hl> personally like to sit and <Hl>watch a course or tutorial</Hl> video for the sake of learning something new; I believe just getting up and trying to <Hl>build something</Hl> teaches me way more than that. Even while you're reading this page, I am most probably debugging something or building a new feature.</p>
+
+                <div className="my-8">
+                    <h2 className='text-2xl font-bold mb-6 text-foreground'>A Glimpse</h2>
+                    <CardStack />
+                </div>
 
                 <h2 className='text-2xl font-bold mt-8 text-foreground'>Let's connect</h2>
                 <p>
