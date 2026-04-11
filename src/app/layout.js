@@ -2,6 +2,9 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import ScrollToHash from "@/components/scroll-to-hash";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -22,9 +25,16 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider>
           <TooltipProvider delayDuration={0}>
-            {children}
+            <Navbar />
+
+            <div>
+              {children}
+            </div>
+
+            <Footer />
           </TooltipProvider>
         </ThemeProvider>
+        <ScrollToHash />
       </body>
     </html>
   );
