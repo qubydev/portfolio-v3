@@ -6,64 +6,10 @@ import {
 } from '@/components/ui/tooltip'
 import { Globe } from 'lucide-react'
 import { FiGithub } from "react-icons/fi"
+import { SHOWCASE_DATA } from '@/lib/showcase'
 
 export default function Projects() {
-    const projects = [
-        {
-            title: "Adotion",
-            link: "https://www.adotion.pro",
-            image: "/projects/adotion.png",
-            description: "Save any meta ad in one click directly into your notion database with permanent video link.",
-            tech: [
-                { name: "Plasmo", icon: "/icons/plasmo.svg", invertDark: true },
-                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
-                { name: "React", icon: "/icons/react.svg" },
-                { name: "Supabase", icon: "/icons/supabase.svg" },
-            ]
-        },
-        {
-            title: "Infia",
-            link: "https://infia.vercel.app",
-            github: "https://github.com/qubydev/infia",
-            image: "/projects/infia.png",
-            description: "Infia does it for you! Click and connect with a large number of available applications.",
-            tech: [
-                { name: "LangGraph", icon: "/icons/langgraph.svg" },
-                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
-                { name: "React", icon: "/icons/react.svg" },
-                { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
-                { name: "MongoDB", icon: "/icons/mongodb.svg" },
-            ]
-        },
-        {
-            title: "Logo Cat",
-            link: "https://logocat.vercel.app",
-            github: "https://github.com/qubydev/logocat",
-            image: "/projects/logocat.png",
-            description: "Fetch logo of any given site link using smart extraction technique.",
-            tech: [
-                { name: "LangChain", icon: "/icons/langchain.svg", invertDark: true },
-                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
-                { name: "React", icon: "/icons/react.svg" },
-                { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
-                { name: "Figma", icon: "/icons/figma.svg" },
-            ]
-        },
-        {
-            title: "Fullstack Sheet",
-            link: "https://www.fullstacksheet.tech",
-            github: "https://github.com/qubydev/full-stack-sheet",
-            image: "/projects/fullstacksheet.png",
-            description: "A high quality free roadmap for learning full-stack development.",
-            tech: [
-                { name: "Next.js", icon: "/icons/nextjs.svg", invertDark: true },
-                { name: "React", icon: "/icons/react.svg" },
-                { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
-                { name: "better-auth", icon: "/icons/better-auth.svg", invertDark: true },
-                { name: "shadcn/ui", icon: "/icons/shadcnui.svg", invertDark: true },
-            ]
-        },
-    ]
+    const projects = SHOWCASE_DATA.find(d => d.category === 'projects')?.items.slice(0, 4) || []
 
     return (
         <section className="mt-20">

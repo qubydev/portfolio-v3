@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const NavLink = ({ href, children }) => {
     const pathname = usePathname();
-    const isActive = pathname === href;
+    const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
 
     return (
         <Link
