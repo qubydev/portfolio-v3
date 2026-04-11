@@ -9,12 +9,7 @@ export default function Quote() {
         author: "Lao Tzu"
     });
 
-    const hasFetched = React.useRef(false);
-
     useEffect(() => {
-        if (hasFetched.current) return;
-        hasFetched.current = true;
-
         fetch('/api/quote')
             .then(res => {
                 if (!res.ok) throw new Error('API unavailable');

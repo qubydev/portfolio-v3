@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     Tooltip,
     TooltipContent,
@@ -20,12 +20,8 @@ const CELL_GAP = 3
 
 export default function GithubCalendar({ username }) {
     const [calendarData, setCalendarData] = useState(null)
-    const hasFetched = useRef(false)
 
     useEffect(() => {
-        if (hasFetched.current) return;
-        hasFetched.current = true;
-
         fetch(`/api/github-contributions?username=${username}`)
             .then(res => {
                 if (!res.ok) throw new Error('Failed to fetch contributions');

@@ -83,7 +83,7 @@ export default function CardStack() {
           {[...stack].reverse().map(({ item, depth }) => (
             <div
               key={item.id}
-              className="absolute top-0 left-0 w-full h-full bg-white dark:bg-zinc-100 shadow-xl"
+              className="absolute top-0 left-0 w-full h-full bg-white shadow-xl"
               style={{
                 transform: `rotate(${tilts[item.id]}deg) translateY(${depth * 10}px)`,
                 zIndex: STACK_SIZE - depth,

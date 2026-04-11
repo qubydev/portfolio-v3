@@ -16,6 +16,7 @@ const links = [
     { href: "/about", label: "About" },
     { href: "/showcase", label: "Showcase" },
 ]
+import NavLinks from './nav-links';
 
 export default function Navbar() {
 
@@ -29,9 +30,7 @@ export default function Navbar() {
 
                 <div className="flex items-center gap-2 ml-auto">
                     <div className="hidden md:flex items-center gap-6 pr-3">
-                        {links.map(({ href, label }) => (
-                            <NavLink key={href} href={href}>{label}</NavLink>
-                        ))}
+                        <NavLinks links={links} />
                     </div>
 
                     <ThemeToggle />
