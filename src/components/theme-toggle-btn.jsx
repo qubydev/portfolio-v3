@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 
 const css = `
 .tt-expand g circle,
@@ -37,13 +37,24 @@ const css = `
 `;
 
 export default function ThemeToggleBtn({ toggled, onToggle }) {
+  const audioRef = useRef(null);
+
+  const handleClick = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+    onToggle();
+  };
+
   return (
     <>
       <style>{css}</style>
+      <audio ref={audioRef} src="/click.wav" />
       <button
         type="button"
         aria-label="Toggle theme"
-        onClick={onToggle}
+        onClick={handleClick}
         style={{ "--tt-duration": "500ms" }}
         className={`inline-flex size-9 items-center justify-center rounded-md bg-secondary text-secondary-foreground transition-colors hover:bg-secondary/80 cursor-pointer border-none ${toggled ? " tt-toggled" : ""}`}
       >
