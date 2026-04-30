@@ -133,7 +133,13 @@
   }
 
   html {
-    @apply font-sans overflow-hidden;
+    @apply font-sans;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   button {
