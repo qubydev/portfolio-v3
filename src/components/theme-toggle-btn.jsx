@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import { flushSync } from "react-dom";
 
 const css = `
 .tt-expand g circle,
@@ -38,13 +39,58 @@ const css = `
 
 export default function ThemeToggleBtn({ toggled, onToggle }) {
   const audioRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
       audioRef.current.play();
     }
-    onToggle();
+
+    // Check if View Transition API is supported and user doesn't prefer reduced motion
+    if (
+      !document.startViewTransition ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      onToggle();
+      return;
+    }
+
+    await document.startViewTransition(() => {
+      flushSync(() => {
+        onToggle();
+      });
+    }).ready;
+
+    // Get button position for ripple center
+    if (buttonRef.current) {
+      const { top, left, width, height } = buttonRef.current.getBoundingClientRect();
+      const x = left + width / 2;
+      const y = top + height / 2;
+      
+      // Calculate radius to cover entire screen
+      const right = window.innerWidth - left;
+      const bottom = window.innerHeight - top;
+      const maxRadius = Math.hypot(
+        Math.max(left, right),
+        Math.max(top, bottom)
+      );
+
+      // Animate the ripple effect
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 600,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    }
   };
 
   return (
@@ -52,6 +98,7 @@ export default function ThemeToggleBtn({ toggled, onToggle }) {
       <style>{css}</style>
       <audio ref={audioRef} src="/click.wav" />
       <button
+        ref={buttonRef}
         type="button"
         aria-label="Toggle theme"
         onClick={handleClick}

@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ScrollToHash from "@/components/scroll-to-hash";
-import ThemeWaveTransition from "@/components/theme-wave-transition";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -25,7 +24,6 @@ export default function RootLayout({ children }) {
     >
       <body>
         <ThemeProvider>
-          <ThemeWaveTransition />
           <TooltipProvider delayDuration={0}>
             <Navbar />
 
