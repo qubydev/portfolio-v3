@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ScrollToHash from "@/components/scroll-to-hash";
+import Script from "next/script";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -22,6 +23,13 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${jetBrainsMono.className} antialiased`}
     >
+      <head>
+        <Script
+          src="https://vertics.vercel.app/vertics.js"
+          data-token="36efa76e-834b-4b03-9a47-537d94cc1338"
+          strategy="afterInteractive" 
+        />
+      </head>
       <body>
         <ThemeProvider>
           <TooltipProvider delayDuration={0}>
