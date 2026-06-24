@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
     >
       <head>
         <Script
-          src="https://vertics.vercel.app/vertics.js"
+          src="https://vertics.vercel.app/vertics.min.js"
           data-token="36efa76e-834b-4b03-9a47-537d94cc1338"
           strategy="afterInteractive" 
         />
