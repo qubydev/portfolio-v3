@@ -1,6 +1,4 @@
-"use client"
-
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Code2, MapPin, Mail, Clock, Globe, User2 } from 'lucide-react'
 import { FileText } from 'lucide-react'
 import { SiGithub, SiX } from "react-icons/si";
@@ -10,39 +8,8 @@ import TechBadge from '../tech-badge'
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import VinylDisk from '@/svgs/vinyl_disk';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 export default function Hero() {
-    const audioRef = useRef(null)
-    const [isPlaying, setIsPlaying] = useState(false)
-
-    useEffect(() => {
-        return () => {
-            audioRef.current?.pause()
-        }
-    }, [])
-
-    const toggleMusic = async () => {
-        if (!audioRef.current) {
-            audioRef.current = new Audio('/fav_song.mp3')
-            audioRef.current.loop = true
-        }
-
-        if (isPlaying) {
-            audioRef.current.pause()
-            setIsPlaying(false)
-            return
-        }
-
-        try {
-            await audioRef.current.play()
-            setIsPlaying(true)
-        } catch {
-            setIsPlaying(false)
-        }
-    }
-
     return (
         <section>
             <div className="md:mb-8 mb-6 flex flex-row items-start gap-3.5 md:gap-4">
@@ -230,22 +197,6 @@ export default function Hero() {
                             <Mail className="h-4 w-4" strokeWidth={1.5} />
                         </a>
                     </Button>
-
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                className="h-9 w-9"
-                                onClick={toggleMusic}
-                                aria-label="Favourite music"
-                                aria-pressed={isPlaying}
-                            >
-                                <VinylDisk className={`h-5 w-5 ${isPlaying ? 'animate-spin' : ''}`} />
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>Favourite music</TooltipContent>
-                    </Tooltip>
                 </div>
             </div>
         </section>
